@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
@@ -69,8 +70,8 @@ export const FraudDetectionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(fraudDetectionReducer, initialState);
 
   const api = axios.create({
-    baseURL: process.env.REACT_APP_API_URL || 'https://crypticminds-frauddetection.onrender.com',
-    timeout: 1000000, // 5 minutes for batch processing
+    baseURL: process.env.REACT_APP_API_URL || 'https://crypticminds-frauddetection.onrender.com'
+    // timeout: 1000000, // 5 minutes for batch processing
   });
 
   const getModelStatus = useCallback(async () => {
@@ -92,7 +93,7 @@ export const FraudDetectionProvider = ({ children }) => {
     dispatch({ type: 'SET_ERROR', payload: null });
     
     try {
-      // console.log('Starting batch analysis for file:', file.name);
+      console.log('Starting batch analysis for file:', file.name);
       const formData = new FormData();
       formData.append('file', file);
       if (sampleSize) {
@@ -105,7 +106,7 @@ export const FraudDetectionProvider = ({ children }) => {
         },
       });
 
-      // console.log('Batch analysis completed:', response.data);
+      console.log('Batch analysis completed:', response.data);
       
       if (response.data.success) {
         dispatch({ type: 'SET_BATCH_RESULTS', payload: response.data });
