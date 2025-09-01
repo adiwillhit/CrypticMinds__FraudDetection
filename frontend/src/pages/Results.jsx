@@ -79,7 +79,7 @@ const Results = () => {
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
       
-      console.log('CSV exported successfully');
+      // console.log('CSV exported successfully');
       alert('CSV exported successfully! The file has been downloaded.');
     } catch (error) {
       console.error('Error exporting CSV:', error);

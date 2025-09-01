@@ -75,9 +75,9 @@ export const FraudDetectionProvider = ({ children }) => {
 
   const getModelStatus = useCallback(async () => {
     try {
-      console.log('Fetching model status from:', api.defaults.baseURL);
+      // console.log('Fetching model status from:', api.defaults.baseURL);
       const response = await api.get('/api/model-status');
-      console.log('Model status response:', response.data);
+      // console.log('Model status response:', response.data);
       dispatch({ type: 'SET_MODEL_STATUS', payload: response.data.status });
       return response.data;
     } catch (error) {
@@ -85,14 +85,14 @@ export const FraudDetectionProvider = ({ children }) => {
       console.error('Error details:', error.response?.data);
       // Don't set error for status check failures
     }
-  }, [api]);
+  },[]);
 
   const runBatchAnalysis = async (file, sampleSize = null) => {
     dispatch({ type: 'SET_LOADING', payload: true });
     dispatch({ type: 'SET_ERROR', payload: null });
     
     try {
-      console.log('Starting batch analysis for file:', file.name);
+      // console.log('Starting batch analysis for file:', file.name);
       const formData = new FormData();
       formData.append('file', file);
       if (sampleSize) {
@@ -105,7 +105,7 @@ export const FraudDetectionProvider = ({ children }) => {
         },
       });
 
-      console.log('Batch analysis completed:', response.data);
+      // console.log('Batch analysis completed:', response.data);
       
       if (response.data.success) {
         dispatch({ type: 'SET_BATCH_RESULTS', payload: response.data });

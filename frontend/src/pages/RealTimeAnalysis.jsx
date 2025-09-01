@@ -60,7 +60,7 @@ const RealTimeAnalysis = () => {
     try {
       const response = await fetch('https://crypticminds-frauddetection.onrender.com/api/simulation/status');
       const data = await response.json();
-      console.log('Simulation status received:', data); // Debug log
+      // console.log('Simulation status received:', data); 
       setSimulationStatus(data);
     } catch (error) {
       console.error('Error fetching simulation status:', error);
