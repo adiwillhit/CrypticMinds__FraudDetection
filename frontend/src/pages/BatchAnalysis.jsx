@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload, FileText, AlertCircle, CheckCircle, Loader } from 'lucide-react';
@@ -5,6 +6,7 @@ import { useFraudDetection } from '../context/FraudDetectionContext';
 
 const BatchAnalysis = () => {
   const { runBatchAnalysis, loading, error, batchResults } = useFraudDetection();
+  const [running, setRunning] = useState(false);
   const [sampleSize, setSampleSize] = useState('');
   const [uploadedFile, setUploadedFile] = useState(null);
 
@@ -28,9 +30,12 @@ const BatchAnalysis = () => {
     
     try {
       const size = sampleSize ? parseInt(sampleSize) : null;
+      setRunning(true);
       await runBatchAnalysis(uploadedFile, size);
     } catch (error) {
       console.error('Analysis failed:', error);
+    } finally {
+      setRunning(false);
     }
   };
 
@@ -41,6 +46,18 @@ const BatchAnalysis = () => {
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
+
+  if(running){
+    return (
+        <div className="flex items-center justify-center min-h-screen">
+            <div className="text-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                <h1 className="text-2xl font-bold text-gray-700">Loading Results...</h1>
+                <p className="text-gray-500">Please wait while we fetch Results.</p>
+            </div>
+        </div>
+        );
+  }
 
   return (
     <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
