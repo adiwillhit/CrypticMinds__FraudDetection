@@ -55,7 +55,7 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 # Global variables to store models and results
 models = {
