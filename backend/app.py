@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
+from flask import make_response
 import pandas as pd
 import numpy as np
 import os
@@ -766,19 +767,19 @@ def handle_options():
 
 @app.errorhandler(413)
 def too_large(e):
-    response = jsonify({'error': f'File too large. Maximum size is {MAX_CONTENT_MB}MB.'}), 413
+    response = make_response(jsonify({'error': f'File too large. Maximum size is {MAX_CONTENT_MB}MB.'}), 413)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 @app.errorhandler(500)
 def internal_error(e):
-    response = jsonify({'error': 'Internal server error'}), 500
+    response = make_response(jsonify({'error': 'Internal server error'}), 500)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
 @app.errorhandler(404)
 def not_found(e):
-    response = jsonify({'error': 'Endpoint not found'}), 404
+    response = make_response(jsonify({'error': 'Endpoint not found'}), 404)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
