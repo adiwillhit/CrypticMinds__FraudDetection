@@ -7,9 +7,17 @@ import os
 import sys
 
 # Add the current directory to Python path so we can import backend modules
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(_file_)))
 
-from app import app
+try:
+    from app import app
+except Exception as e:
+    print(f"Error importing app: {e}")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Files in current directory: {os.listdir('.')}")
+    import traceback
+    traceback.print_exc()
+    sys.exit(1)
 
 if __name__ == '__main__':
     print("Starting Fraud Detection API Server...")
@@ -19,7 +27,7 @@ if __name__ == '__main__':
     print("- POST /api/batch-analysis - Upload CSV for batch analysis")
     print("- POST /api/real-time-analysis - Analyze single transaction")
     print("- GET  /api/debug/rate-limit - Debug rate limiting")
-    print("\nServer will start on https://crypticminds-frauddetection.onrender.com")
+    print("\nServer will start on http://localhost:5000")
     print(f"Status check cooldown: {os.environ.get('STATUS_CHECK_COOLDOWN', '30')} seconds")
     print("Rate limiting is ACTIVE to reduce log spam")
     
