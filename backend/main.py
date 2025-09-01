@@ -27,7 +27,7 @@ if __name__ == '__main__':
     print("- POST /api/batch-analysis - Upload CSV for batch analysis")
     print("- POST /api/real-time-analysis - Analyze single transaction")
     print("- GET  /api/debug/rate-limit - Debug rate limiting")
-    print("\nServer will start on http://localhost:5000")
+    print("\nServer will start on https://crypticminds-frauddetection.onrender.com")
     print(f"Status check cooldown: {os.environ.get('STATUS_CHECK_COOLDOWN', '30')} seconds")
     print("Rate limiting is ACTIVE to reduce log spam")
     

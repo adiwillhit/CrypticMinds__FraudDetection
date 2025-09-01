@@ -21,24 +21,8 @@ app = Flask(__name__)
 MAX_CONTENT_MB = int(os.environ.get('MAX_CONTENT_MB', '2048'))
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_MB * 1024 * 1024
 
-# CORS configuration for both development and production
-ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:3001",
-    "https://crypticminds-frauddetection.onrender.com",
-    "https://cryptic-minds-fraud-detection.vercel.app"
-]
-
-# Allow additional origins from environment variable (comma-separated)
-ADDITIONAL_ORIGINS = os.environ.get("ADDITIONAL_CORS_ORIGINS", "").split(",")
-if ADDITIONAL_ORIGINS and ADDITIONAL_ORIGINS[0]:  # Only add if not empty
-    ALLOWED_ORIGINS.extend([origin.strip() for origin in ADDITIONAL_ORIGINS])
-
-# For development, allow all origins
-if os.environ.get("FLASK_ENV") == "development":
-    CORS(app, resources={r"/": {"origins": ""}}, supports_credentials=True)
-else:
-    CORS(app, resources={r"/*": {"origins": ALLOWED_ORIGINS}}, supports_credentials=True)
+# ✅ Allow all CORS requests from any origin
+CORS(app, resources={r"/": {"origins": ""}}, supports_credentials=True)
 
 # Reduce Flask logging verbosity
 import logging
