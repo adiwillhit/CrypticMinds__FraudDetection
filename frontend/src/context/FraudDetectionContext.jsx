@@ -70,7 +70,7 @@ export const FraudDetectionProvider = ({ children }) => {
 
   const api = axios.create({
     baseURL: process.env.REACT_APP_API_URL || 'https://crypticminds-frauddetection.onrender.com',
-    timeout: 300000, // 5 minutes for batch processing
+    timeout: 1000000, // 5 minutes for batch processing
   });
 
   const getModelStatus = useCallback(async () => {
