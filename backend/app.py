@@ -23,7 +23,7 @@ MAX_CONTENT_MB = int(os.environ.get('MAX_CONTENT_MB', '2048'))
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_MB * 1024 * 1024
 
 # ✅ Allow all CORS requests from any origin
-CORS(app, resources={r"/": {"origins": ""}}, supports_credentials=True)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 # Reduce Flask logging verbosity
 import logging
