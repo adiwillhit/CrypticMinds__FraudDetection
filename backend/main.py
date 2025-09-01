@@ -7,7 +7,7 @@ import os
 import sys
 
 # Add the current directory to Python path so we can import backend modules
-sys.path.insert(0, os.path.dirname(os.path.abspath(_file_)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 try:
     from app import app
