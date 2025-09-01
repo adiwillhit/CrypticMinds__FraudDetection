@@ -18,3 +18,5 @@ services:
         value: 30
       - key: ADDITIONAL_CORS_ORIGINS
         value: "https://cryptic-minds-fraud-detection.vercel.app"
+      - key: ADDITIONAL_CORS_ORIGINSS
+        value: "https://crypticminds-frauddetection.onrender.com/"

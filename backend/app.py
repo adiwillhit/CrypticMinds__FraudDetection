@@ -24,6 +24,7 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_MB * 1024 * 1024
 ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:3001',
+    'https://crypticminds-frauddetection.onrender.com/',
     'https://cryptic-minds-fraud-detection.vercel.app',
     'https://cryptic-minds-fraud-detection.vercel.app/',
     'https://cryptic-minds-fraud-detection.vercel.app/*'
