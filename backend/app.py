@@ -20,26 +20,25 @@ app = Flask(__name__)
 # Allow large CSV uploads. Default 2048MB (2GB). Override with env MAX_CONTENT_MB.
 MAX_CONTENT_MB = int(os.environ.get('MAX_CONTENT_MB', '2048'))
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_MB * 1024 * 1024
+
 # CORS configuration for both development and production
 ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'https://crypticminds-frauddetection.onrender.com/',
-    'https://cryptic-minds-fraud-detection.vercel.app',
-    'https://cryptic-minds-fraud-detection.vercel.app/',
-    'https://cryptic-minds-fraud-detection.vercel.app/*'
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://crypticminds-frauddetection.onrender.com",
+    "https://cryptic-minds-fraud-detection.vercel.app"
 ]
 
-# Allow additional origins from environment variable
-ADDITIONAL_ORIGINS = os.environ.get('ADDITIONAL_CORS_ORIGINS', '').split(',')
+# Allow additional origins from environment variable (comma-separated)
+ADDITIONAL_ORIGINS = os.environ.get("ADDITIONAL_CORS_ORIGINS", "").split(",")
 if ADDITIONAL_ORIGINS and ADDITIONAL_ORIGINS[0]:  # Only add if not empty
     ALLOWED_ORIGINS.extend([origin.strip() for origin in ADDITIONAL_ORIGINS])
 
-# For development, allow all origins if FLASK_ENV is development
-if os.environ.get('FLASK_ENV') == 'development':
-    CORS(app, origins='*', supports_credentials=True)
+# For development, allow all origins
+if os.environ.get("FLASK_ENV") == "development":
+    CORS(app, resources={r"/": {"origins": ""}}, supports_credentials=True)
 else:
-    CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
+    CORS(app, resources={r"/*": {"origins": ALLOWED_ORIGINS}}, supports_credentials=True)
 
 # Reduce Flask logging verbosity
 import logging
