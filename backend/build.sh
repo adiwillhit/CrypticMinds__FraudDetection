@@ -25,7 +25,7 @@ done
 
 # Verify gunicorn installation
 echo "Verifying gunicorn installation..."
-if python -c "import gunicorn; print('Gunicorn version:', gunicorn._version_)"; then
+if python -c "import gunicorn; print('Gunicorn version:', gunicorn.__version__)"; then
     echo "Gunicorn verified successfully!"
 else
     echo "Gunicorn not found, installing separately..."

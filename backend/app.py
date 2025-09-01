@@ -16,7 +16,7 @@ import uuid
 # Import the fraud detection functions from the notebook code
 import fraud_detection
 
-app = Flask(_name_)
+app = Flask(__name__)
 # Allow large CSV uploads. Default 2048MB (2GB). Override with env MAX_CONTENT_MB.
 MAX_CONTENT_MB = int(os.environ.get('MAX_CONTENT_MB', '2048'))
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_MB * 1024 * 1024
