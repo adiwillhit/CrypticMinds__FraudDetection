@@ -16,3 +16,5 @@ services:
         value: 2048
       - key: STATUS_CHECK_COOLDOWN
         value: 30
+      - key: ADDITIONAL_CORS_ORIGINS
+        value: "https://cryptic-minds-fraud-detection.vercel.app"
