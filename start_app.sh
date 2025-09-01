@@ -36,12 +36,12 @@ cd ..
 sleep 3
 
 # Check if backend is running
-if ! curl -s http://localhost:5000/api/model-status > /dev/null; then
+if ! curl -s https://crypticminds-frauddetection.onrender.com/api/model-status > /dev/null; then
     echo "❌ Backend failed to start"
     kill $BACKEND_PID 2>/dev/null
     exit 1
 fi
-echo "✅ Backend is running on http://localhost:5000"
+echo "✅ Backend is running on https://crypticminds-frauddetection.onrender.com"
 
 # Start frontend
 echo "🌐 Starting React frontend..."
@@ -63,7 +63,7 @@ echo "✅ Frontend is running on http://localhost:3000"
 
 echo ""
 echo "🎉 Fraud Detection System is now running!"
-echo "📊 Backend API: http://localhost:5000"
+echo "📊 Backend API: https://crypticminds-frauddetection.onrender.com"
 echo "🌐 Frontend App: http://localhost:3000"
 echo ""
 echo "Press Ctrl+C to stop all services"

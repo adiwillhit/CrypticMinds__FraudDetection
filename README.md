@@ -6,7 +6,7 @@ A comprehensive machine learning-based fraud detection system with a React front
 
 **Both backend and frontend are running successfully!**
 
-- **Backend API**: Running on http://localhost:5000 ✅
+- **Backend API**: Running on https://crypticminds-frauddetection.onrender.com ✅
 - **Frontend App**: Running on http://localhost:3000 ✅
 - **Integration**: Complete and tested ✅
 - **Batch Analysis**: Working with advanced ML pipeline ✅

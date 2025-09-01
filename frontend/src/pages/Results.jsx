@@ -52,7 +52,7 @@ const Results = () => {
     
     try {
       // Call the backend API to export the CSV
-      const response = await fetch('http://localhost:5000/api/export-fraudulent-transactions', {
+      const response = await fetch('https://crypticminds-frauddetection.onrender.com/api/export-fraudulent-transactions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

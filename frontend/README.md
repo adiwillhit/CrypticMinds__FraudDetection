@@ -24,7 +24,7 @@ A modern React-based frontend for the advanced fraud detection system using mach
 
 - Node.js (v16 or higher)
 - npm or yarn
-- Python backend running on localhost:5000
+- Python backend running on https://crypticminds-frauddetection.onrender.com
 
 ## Installation
 
@@ -109,7 +109,7 @@ The frontend expects the following API endpoints from the Python backend:
 ## Configuration
 
 ### Backend URL
-The frontend is configured to connect to `http://localhost:5000` by default. To change this:
+The frontend is configured to connect to `https://crypticminds-frauddetection.onrender.com` by default. To change this:
 
 1. Update the `baseURL` in `src/context/FraudDetectionContext.js`
 2. Or set the `REACT_APP_API_URL` environment variable

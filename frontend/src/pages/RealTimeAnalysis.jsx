@@ -58,7 +58,7 @@ const RealTimeAnalysis = () => {
   // Simulation functions
   const fetchSimulationStatus = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/simulation/status');
+      const response = await fetch('https://crypticminds-frauddetection.onrender.com/api/simulation/status');
       const data = await response.json();
       console.log('Simulation status received:', data); // Debug log
       setSimulationStatus(data);
@@ -71,7 +71,7 @@ const RealTimeAnalysis = () => {
   const startSimulation = async () => {
     setSimulationLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/simulation/start', {
+      const response = await fetch('https://crypticminds-frauddetection.onrender.com/api/simulation/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -93,7 +93,7 @@ const RealTimeAnalysis = () => {
   const stopSimulation = async () => {
     setSimulationLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/simulation/stop', {
+      const response = await fetch('https://crypticminds-frauddetection.onrender.com/api/simulation/stop', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
@@ -114,7 +114,7 @@ const RealTimeAnalysis = () => {
   const analyzeSimulationData = async () => {
     setSimulationLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/simulation/analyze', {
+      const response = await fetch('https://crypticminds-frauddetection.onrender.com/api/simulation/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' }
       });
