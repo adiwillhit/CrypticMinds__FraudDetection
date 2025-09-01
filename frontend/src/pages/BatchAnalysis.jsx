@@ -177,27 +177,6 @@ const BatchAnalysis = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
-            {/* <div className="p-3 sm:p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Precision</h3>
-              <p className="text-lg sm:text-2xl font-bold text-primary-600">
-                {((batchResults.statistics?.precision || 0) * 100).toFixed(2)}%
-              </p>
-            </div>
-            <div className="p-3 sm:p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Recall</h3>
-              <p className="text-lg sm:text-2xl font-bold text-primary-600">
-                {((batchResults.statistics?.recall || 0) * 100).toFixed(2)}%
-              </p>
-            </div>
-            <div className="p-3 sm:p-4 bg-gray-50 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">F1 Score</h3>
-              <p className="text-lg sm:text-2xl font-bold text-primary-600">
-                {((batchResults.statistics?.f1Score || 0) * 100).toFixed(2)}%
-              </p>
-            </div> */}
-          </div>
-
           {/* Confusion Matrix Summary */}
           <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-50 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Confusion Matrix Summary</h3>

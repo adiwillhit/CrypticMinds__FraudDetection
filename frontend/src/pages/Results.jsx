@@ -373,28 +373,7 @@ const Results = () => {
 
       {/* Confusion Matrix Summary */}
       {batchResults?.statistics && (
-        // <div className="card">
-        //   <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 sm:mb-6">Confusion Matrix Summary</h2>
-        //   <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        //     <div className="text-center p-4 bg-success-50 rounded-lg">
-        //       <p className="text-2xl font-bold text-success-600">{batchResults.statistics.trueNegatives || 0}</p>
-        //       <p className="text-sm text-gray-600">True Negatives</p>
-        //     </div>
-        //     <div className="text-center p-4 bg-danger-50 rounded-lg">
-        //       <p className="text-2xl font-bold text-danger-600">{batchResults.statistics.falsePositives || 0}</p>
-        //       <p className="text-sm text-gray-600">False Positives</p>
-        //     </div>
-          
-        //     <div className="text-center p-4 bg-warning-50 rounded-lg">
-        //       <p className="text-2xl font-bold text-warning-600">{batchResults.statistics.falseNegatives || 0}</p>
-        //       <p className="text-sm text-gray-600">False Negatives</p>
-        //     </div>
-        //     <div className="text-center p-4 bg-primary-50 rounded-lg">
-        //       <p className="text-2xl font-bold text-primary-600">{batchResults.statistics.truePositives || 0}</p>
-        //       <p className="text-sm text-gray-600">True Positives</p>
-        //     </div>
-        //   </div>
-        // </div>
+       
         <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-50 rounded-lg">
             <h3 className="font-semibold text-gray-900 mb-3 text-sm sm:text-base">Confusion Matrix Summary</h3>
             <div className="grid grid-cols-2 gap-4 text-center">
@@ -437,9 +416,7 @@ const Results = () => {
                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                      Suspicion Score
                    </th>
-                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                     Actions
-                   </th>
+                   
                  </tr>
                </thead>
                <tbody className="bg-white divide-y divide-gray-200">
@@ -473,15 +450,7 @@ const Results = () => {
                          {(transaction.suspicion_score * 100).toFixed(1)}%
                        </span>
                      </td>
-                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                       <button
-                         onClick={() => handleViewTransaction(transaction)}
-                         className="text-indigo-600 hover:text-indigo-900 flex items-center space-x-1"
-                       >
-                         <Eye className="h-4 w-4" />
-                         <span>View</span>
-                       </button>
-                     </td>
+                    
                    </tr>
                  ))}
                </tbody>
